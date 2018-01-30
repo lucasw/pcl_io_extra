@@ -22,7 +22,9 @@ exec_program(${LIBLAS_CONFIG_PROG} ARGS --cxxflags OUTPUT_VARIABLE
                LIBLAS_CXXFLAGS)
 
 else()
-	MESSAGE(FATAL_ERROR, "FindLIBAS.cmaek.  liblas-config not found. liblas-config=${LIBLAS_CONFIG_PROG}")
+	MESSAGE(STATUS, "FindLIBLAS.cmake.  liblas-config not found. liblas-config=${LIBLAS_CONFIG_PROG}")
+  find_library(LIBLAS_LIBRARIES liblas.so REQUIRED)
+  find_path(LIBLAS_INCLUDE_DIRS liblas/liblas.hpp)
 endif(LIBLAS_CONFIG_PROG)
 
 
